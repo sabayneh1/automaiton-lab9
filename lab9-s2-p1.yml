@@ -1,0 +1,9 @@
+- name: this will install softwre in local host 
+  hosts: ansible-c07-vm1
+  tasks:
+  - name: install a software 
+    yum:
+     name: 
+      - "{{ package }}" 
+      - "{{ package1 }}" 
+     state: latest 

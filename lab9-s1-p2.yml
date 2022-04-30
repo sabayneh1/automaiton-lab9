@@ -1,0 +1,31 @@
+- name: this will create users and group
+  hosts: ansible-c07-vm2
+  vars_files:
+    - vars/userinfo
+     
+  tasks:
+  - name: Create group called group10
+    group:
+      name: "{{ grouplist1 }}"
+      state: present 
+  - name: Create group called group20
+    group:
+      name: "{{ grouplist2 }}"
+      state: present 
+
+  - name: Create user called user10
+    user:
+      name: "{{userlist1}}"
+      uid: 1800
+      groups: "{{grouplist1}}"
+      append: 1
+      state: present 
+  - name: Create user called user20
+    user:
+      name: "{{userlist2}}"
+      uid: 1900
+      groups: "{{grouplist2}}"
+      append: 1
+      home: /home/"{{userlist2}}"
+      shell: /bin/bash
+      state: present 

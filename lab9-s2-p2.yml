@@ -1,0 +1,7 @@
+- name: this will install softwre in linux 
+  hosts: linux
+  tasks:
+  - name: install a software 
+    yum:
+      name: "{{ package }}" 
+      state: latest 

@@ -1,0 +1,16 @@
+- name: installing using packages 
+  hosts: ansible-c07-vm1
+  # gather_facts: true 
+  
+  tasks:
+    - name: Gather the rpm package facts
+      package_facts:
+        manager: auto
+    - name: To dispalay isnstalled packages
+      debug:
+        var: packages
+    - name: packge isnstalled 
+      debug:
+        msg: 
+          The setup packge version is  "{{ packages['setup'][0].version }}"                      
+          

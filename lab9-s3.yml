@@ -1,0 +1,19 @@
+- name: this will install softwre in local host 
+  hosts: ansible-c07-vm1
+  tasks:
+  - name: install a software 
+    yum:
+      name: 
+        - "{{ package }}" 
+        - "{{ package1 }}"  
+      state: latest
+    register: lab9Sec3  
+
+  - name: Display entire tasks 
+    debug:
+      var: lab9Sec3    
+  - name: This is to dispaly the installed packge 
+    debug:
+      msg: The installed package are {{ lab9Sec3['changes']['installed'] }}
+
+

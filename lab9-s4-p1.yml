@@ -1,0 +1,13 @@
+- name: installing using packages 
+  hosts: ansible-w07-vm1
+  gather_facts: true 
+  
+  tasks:
+    - name: To dispalay ansible fact info 
+      debug:
+        var: ansible_facts
+    - name: To dispalay the FQDN IPv4 address and hostname 
+      debug:
+        msg: > 
+          FQDN is {{ansible_facts.fqdn}}  and IPv4  address is {{ansible_facts.ip_addresses}} and 
+          Short hostname is {{ansible_facts.hostname}}
